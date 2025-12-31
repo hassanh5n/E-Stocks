@@ -1,0 +1,8 @@
+**/.dockerignore
+**/.git
+**/.gitignore
+**/.vs
+**/bin
+**/obj
+**/TestYahoo
+appsettings.local.json
