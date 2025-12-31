@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    ports:
+      - "5130:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=db;Port=3306;Database=estocks;User=root;Password=root;
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: estocks
+    ports:
+      - "3307:3306"
