@@ -10,7 +10,7 @@
 
 ## Introduction
 
-**EStocks** is a robust financial technology application designed to simulate a real-world trading environment. It provides users with tools to manage their financial portfolios, trade stocks in real-time, invest in mutual funds, and engage in future contract trading. Built with **ASP.NET Core MVC** and **MySQL**, it offers a secure, scalable, and responsive experience for financial enthusiasts and learners.
+**E-Stocks** is a financial technology application designed to simulate a real world trading environment. It provides users with tools to manage their financial portfolios, trade stocks in real-time, invest in mutual funds, and engage in future contract trading. Built with **ASP.NET Core MVC** and **MySQL**, it offers a secure, scalable, and responsive experience for financial enthusiasts and learners.
 
 ---
 
@@ -94,7 +94,7 @@ The application should now be accessible at `https://localhost:7197` (or the por
 
 ## Run with Docker 🐳
 
-You can run the entire application (App + Database) without installing .NET or MySQL locally, thanks to Docker.
+You can run the entire application (App + Database) without installing .NET or MySQL locally, with Docker.
 
 ### Prerequisites
 *   [Docker Desktop](https://www.docker.com/products/docker-desktop) installed and running.
@@ -105,8 +105,7 @@ You can run the entire application (App + Database) without installing .NET or M
     ```bash
     docker-compose up --build
     ```
-3.  Wait for the logs to show `✅ Database connected and created successfully!`.
-4.  Open your browser to: `http://localhost:5130`
+3.  Open your browser to: `http://localhost:5130`
 
 ### Architecture Highlights
 *   **Multi-Stage Build**: Keeps the final image small by separating build tools from the runtime.
