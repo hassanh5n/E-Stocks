@@ -97,3 +97,8 @@ yarn-error.log*
 *.iml
 
 # If you use Azure Functions or other tooling add patterns as needed
+
+# SECURITY: Ignore files with database credentials
+appsettings.json
+appsettings.Development.json
+Data/EstocksDbContextFactory.cs

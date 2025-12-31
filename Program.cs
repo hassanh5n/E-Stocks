@@ -15,11 +15,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<EstocksDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-builder.Services.AddHttpClient<StockDataService>()
-    .ConfigureHttpClient(client =>
-    {
-        client.Timeout = TimeSpan.FromSeconds(30);
-    });
+// 👇 Register StockDataService
 builder.Services.AddScoped<StockDataService>();
 
 // 👇 Add MVC services (controllers + views)
