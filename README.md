@@ -92,26 +92,26 @@ The application should now be accessible at `https://localhost:7197` (or the por
 
 ---
 
-## Run with Docker 🐳
+## DevOps & Deployment 🚀
 
-You can run the entire application (App + Database) without installing .NET or MySQL locally, with Docker.
+E-Stocks is fully containerized and features a professional CI/CD pipeline for automated cloud deployment.
 
-### Prerequisites
-*   [Docker Desktop](https://www.docker.com/products/docker-desktop) installed and running.
+### 🐳 Containerization
+The application uses **Docker** and **Docker Compose** to orchestrate the web server and the MySQL database.
+*   **Multi-Stage Builds**: The `Dockerfile` uses a build stage (SDK) and a runtime stage (ASP.NET Runtime) to ensure the final production image is lightweight and secure.
+*   **Database Resilience**: Implemented a custom C# retry mechanism in `Program.cs` to handle race conditions during container startup (ensuring the app waits for MySQL to be ready).
+*   **Auto-Migration**: The database schema is automatically provisioned on startup using Entity Framework's `EnsureCreated()`.
 
-### Quick Start
-1.  Open a terminal in the project root.
-2.  Run the following command:
-    ```bash
-    docker-compose up --build
-    ```
-3.  Open your browser to: `http://localhost:5130`
+### 🔄 CI/CD Pipeline (GitHub Actions)
+A full CI/CD pipeline is configured in `.github/workflows/ci.yml`:
+1.  **Continuous Integration**: On every push to `main`, GitHub Actions triggers a build to verify code integrity.
+2.  **Continuous Delivery**: Upon a successful build, the Docker image is automatically pushed to **Docker Hub** (`hassanh5n/estocks`).
+3.  **Continuous Deployment**: The pipeline then securely SSHs into an **AWS EC2** instance, pulls the latest image, and restarts the services using Docker Compose.
 
-### Architecture Highlights
-*   **Multi-Stage Build**: Keeps the final image small by separating build tools from the runtime.
-*   **Orchestration**: `docker-compose.yml` manages both the `estocks-app` and `mysql` containers.
-*   **Resilience**: The application includes a retry mechanism to wait for the database to be fully ready before connecting, solving common race conditions in containerized environments.
-*   **Auto-Migration**: The database schema is automatically created on startup using `EnsureCreated()`.
+### ☁️ Cloud Infrastructure
+*   **Host**: AWS EC2 (Ubuntu 24.04 LTS).
+*   **Orchestration**: Docker Compose.
+*   **Security**: Secured via GitHub Secrets and AWS Security Groups.
 
 ---
 
