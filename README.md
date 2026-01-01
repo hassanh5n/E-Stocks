@@ -12,6 +12,9 @@
 
 **E-Stocks** is a financial technology application designed to simulate a real world trading environment. It provides users with tools to manage their financial portfolios, trade stocks in real-time, invest in mutual funds, and engage in future contract trading. Built with **ASP.NET Core MVC** and **MySQL**, it offers a secure, scalable, and responsive experience for financial enthusiasts and learners.
 
+### 🌐 Live Access
+**View the application live at:** [http://34.236.82.196:5130](http://34.236.82.196:5130)
+
 ---
 
 ## Key Features
