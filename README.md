@@ -94,6 +94,27 @@ The application should now be accessible at `https://localhost:7197` (or the por
 
 ## DevOps & Deployment 🚀
 
+### 🚀 Quick Deploy with Docker (Recommended)
+The easiest way to run E-Stocks is using Docker Compose. This automatically sets up both the **ASP.NET Core Application** and the **MySQL Database**.
+
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/hassanh5n/E-Stocks.git
+    cd estocks
+    ```
+
+2.  **Spin up the Environment**:
+    ```bash
+    docker-compose up -d
+    ```
+
+3.  **Access the Application**:
+    Naviate to `http://localhost:5130` in your browser. 
+
+*Note: The system includes a built-in health check and retry logic, so the app will wait for the database to be fully initialized before starting.*
+
+---
+
 E-Stocks is fully containerized and features a professional CI/CD pipeline for automated cloud deployment.
 
 ### 🐳 Containerization
