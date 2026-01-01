@@ -26,3 +26,22 @@ jobs:
         context: .
         push: true
         tags: hassanh5n/estocks:latest
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to EC2 via SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd ~
+          # Pull the latest image
+          docker-compose pull app
+          # Restart the services in detached mode
+          docker-compose up -d
+          # Cleanup old images to save space
+          docker image prune -f
